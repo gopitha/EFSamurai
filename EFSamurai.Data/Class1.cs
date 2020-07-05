@@ -18,7 +18,15 @@ namespace EFSamurai.Data
                 @"Trusted_Connection = True; " );
         }
 
-        public DbSet<Quote> Quotes;
-        public DbSet<SecretIdentity> SecretIdentities;
+        public DbSet<Quote> Quotes { get; set; }
+        public DbSet<SecretIdentity> SecretIdentities { get; set; }
+        public DbSet<SamuraiBattle> SamuraiBattles { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SamuraiBattle>()
+                .HasKey(c => new {c.SamuraiId, c.BattleId});
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Mime;
 
 namespace EFSamurai.Domain
@@ -12,6 +13,8 @@ namespace EFSamurai.Domain
         public HairStyle ? HairStyle { get; set; }
 
         public SecretIdentity SecretIdentity { get; set; }
+
+        public ICollection<SamuraiBattle> SamuraiBattles { get; set; }
     }
 
     public class Quote
@@ -41,6 +44,8 @@ namespace EFSamurai.Domain
         public bool IsBrutal { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+
+        public ICollection<SamuraiBattle> SamuraiBattles { get; set; }
     }
 
     public class SamuraiBattle
