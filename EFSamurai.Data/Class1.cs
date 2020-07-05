@@ -28,6 +28,7 @@ namespace EFSamurai.Data
                 .HasKey(c => new {c.SamuraiId, c.BattleId});
         }
 
-
+        public DbSet<BattleLog> BattleLogs { get; set; }
+        public DbSet<BattleEvent> BattleEvents { get; set; }
     }
 }
