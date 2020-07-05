@@ -10,6 +10,8 @@ namespace EFSamurai.Domain
         public Quote Quote { get; set; }
 
         public HairStyle ? HairStyle { get; set; }
+
+        public SecretIdentity SecretIdentity { get; set; }
     }
 
     public class Quote
@@ -20,6 +22,15 @@ namespace EFSamurai.Domain
         public QuoteStyle ? QuoteStyle   {get; set;}
 
       
+    }
+
+    public class SecretIdentity
+    {
+        public int Id { get; set; }
+        public string RealName { get; set; }
+        public Samurai SamuraiId { get; set; }
+
+        public Samurai Samurai { get; set; }
     }
 }
 
