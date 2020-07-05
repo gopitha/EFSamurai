@@ -7,6 +7,7 @@ namespace EFSamurai.Domain
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public Quote Quote { get; set; }
     }
 
     public class Quote
@@ -14,7 +15,7 @@ namespace EFSamurai.Domain
         public int Id { get; set; }
         public string Text { get; set; }
 
-        public QuoteStyle QuoteStyle   {get; set;}
+        public QuoteStyle ? QuoteStyle   {get; set;}
 
       
     }

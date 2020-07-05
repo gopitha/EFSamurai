@@ -17,5 +17,7 @@ namespace EFSamurai.Data
                 @"Database=EFSamurai; " +
                 @"Trusted_Connection = True; " );
         }
+
+        public DbSet<Quote> Quotes;
     }
 }
