@@ -33,7 +33,7 @@ namespace EFSamurai.Domain
         public Samurai Samurai { get; set; }
     }
 
-    public class Battele
+    public class Battle
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -41,6 +41,14 @@ namespace EFSamurai.Domain
         public bool IsBrutal { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+    }
+
+    public class SamuraiBattle
+    {
+        public int SamuraiId { get; set; }
+        public Samurai Samurai { get; set; }
+        public int BattleId { get; set; }
+        public Battle Battle { get; set; }
     }
 }
 
