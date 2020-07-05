@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EFSamurai.Domain
 {
-    enum QuoteStyle
+  public enum QuoteStyle
     {
         Lame, 
         Cheesy,
