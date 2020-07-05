@@ -19,5 +19,6 @@ namespace EFSamurai.Data
         }
 
         public DbSet<Quote> Quotes;
+        public DbSet<SecretIdentity> SecretIdentities;
     }
 }
