@@ -28,5 +28,6 @@ namespace EFSamurai.Data
                 .HasKey(c => new {c.SamuraiId, c.BattleId});
         }
 
+
     }
 }
