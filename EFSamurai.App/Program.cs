@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using EFSamurai.Data;
 using EFSamurai.Domain;
 
@@ -15,9 +16,20 @@ namespace EFSamurai.App
                 context.SaveChanges();
             }
         }
-        static void Main(string[] args)
+
+        public static void AddSomeSamurais()
         {
-            Console.WriteLine("Hello World!");
+            IList<Samurai> newSamurai = new List<Samurai>() {
+                
+                new Samurai() {Name = "Yukio"};
+                new Samurai() {Name = "Renzo"};
+                new Samurai() {Name = "Morio"};
+        };
+
         }
+
+      //  static void Main(string[] args)
+        //{Console.WriteLine("Hello World!");}
     }
-}
+
+
