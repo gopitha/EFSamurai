@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EFSamurai.Domain
 {
-   public enum Hairstyle
+   public enum HairStyle
     {
         Chonmage,
         Oicho,
