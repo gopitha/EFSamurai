@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using EFSamurai.Domain;
+using System.Data.SqlClient;
 
 namespace EFSamurai.Data
 {
