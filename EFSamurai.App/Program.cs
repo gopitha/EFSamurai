@@ -296,7 +296,16 @@ namespace EFSamurai.App
 
         }
 
+        public static void ListAllQuotesOfType_WithSamurai(QuoteStyle quoteStyle)
+        {
 
+        }
+
+        public static void ListAllBattles(DateTime from, DateTime to, bool? isBrutal)
+        {
+
+
+        }
 
 
 
@@ -307,7 +316,7 @@ namespace EFSamurai.App
             // ListAllSamuraiNames_OrderByDecending();
             //  ListAllSamuraiNames_OrderByIdDescending();
             //FindSamuraiWithRealName("Gopitha");
-            ListAllQuotesOfType(QuoteStyle.Awesome);
+            //ListAllQuotesOfType(QuoteStyle.Awesome);
 
 
 
