@@ -243,6 +243,20 @@ namespace EFSamurai.App
 
         }
 
+        public static void ListAllSamuraiNames_OrderByIdDescending()
+        {
+            using (var context = new SamuraiContext())
+            {
+                var samurais = context.Samurais
+                    .OrderByDescending(s => s.Id)
+                    .ToList();
+                foreach (var item in samurais)
+                {
+                 Console.WriteLine( item.Id+ "   " +  item.Name );   
+                }
+            }
+        }
+
 
 
 
@@ -251,7 +265,8 @@ namespace EFSamurai.App
         
         {   // Metoder til del 2 av oppgaven:
             // ListAllSamuraiNames();
-           // ListAllSamuraiNames_OrderByDecending();
+            // ListAllSamuraiNames_OrderByDecending();
+          //  ListAllSamuraiNames_OrderByIdDescending();
 
 
 
