@@ -30,5 +30,6 @@ namespace EFSamurai.Data
 
         public DbSet<BattleLog> BattleLogs { get; set; }
         public DbSet<BattleEvent> BattleEvents { get; set; }
+        public DbSet<Battle> Battles { get; set; }
     }
 }

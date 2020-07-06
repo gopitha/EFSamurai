@@ -8,7 +8,7 @@ namespace EFSamurai.Domain
     {
         public int? Id { get; set; }
         public string Name { get; set; }
-        public Quote Quote { get; set; }
+        public QuoteStyle Quote { get; set; }
 
         public HairStyle ? HairStyle { get; set; }
 
