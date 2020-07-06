@@ -227,25 +227,48 @@ namespace EFSamurai.App
             }
         }
 
+        public static void ListAllSamuraiNames_OrderByDecending()
+        {
+            using (var context = new SamuraiContext())
+            {
+                var samuraiNameDec = from s in context.Samurais
+                    orderby s.Id descending
+                    select s;
+
+                foreach (var samurai in samuraiNameDec)
+                {
+                    Console.WriteLine(samurai.Id + "  " + samurai.Name );
+                }
+            }
+
+        }
 
 
 
+
+
+    static void Main(string[] args){
+        
+        {   // Metoder til del 2 av oppgaven:
+            // ListAllSamuraiNames();
+           // ListAllSamuraiNames_OrderByDecending();
+
+
+
+
+            // Metoder til del 1 av Oppgaven:
+
+            // AddSomeSamurais();
+            // AddSomeBattles();
+            // AddOneSamuraiWithRelatedData();
+            // ClearDatabase();
+
+
+        }
+
+        }
 
     }
-
-
-    static void Main(string[] args)
-
-    {
-
-
-    // AddSomeSamurais();
-    // AddSomeBattles();
-    // AddOneSamuraiWithRelatedData();
-    // ClearDatabase();
-    }
-
-
 
 
 
