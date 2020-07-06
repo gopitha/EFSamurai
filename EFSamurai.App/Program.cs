@@ -4,6 +4,7 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using EFSamurai.Data;
 using EFSamurai.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFSamurai.App
 {
@@ -257,6 +258,30 @@ namespace EFSamurai.App
             }
         }
 
+        public static void FindSamuraiWithRealName(string name)
+        {
+            using (var context = new SamuraiContext())
+            {
+                var matchingNames = context.Samurais
+                    .Include(s => s.SecretIdentity)
+                    .Where(n => n.Name.Equals(name))
+                    .ToList();
+
+                if (!matchingNames.Any())
+                {
+                    Console.WriteLine("Sorry, try again!");
+                }
+                else
+                {
+                    foreach (var item in matchingNames)
+                    {
+                            Console.WriteLine($"{item.Name}  has a real name and it is {item.SecretIdentity.RealName}");
+                    }
+                }
+            }
+        }
+
+
 
 
 
@@ -266,7 +291,8 @@ namespace EFSamurai.App
         {   // Metoder til del 2 av oppgaven:
             // ListAllSamuraiNames();
             // ListAllSamuraiNames_OrderByDecending();
-          //  ListAllSamuraiNames_OrderByIdDescending();
+            //  ListAllSamuraiNames_OrderByIdDescending();
+            //FindSamuraiWithRealName("Gopitha");
 
 
 
