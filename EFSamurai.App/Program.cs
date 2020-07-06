@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using System.Linq;
 using EFSamurai.Data;
 using EFSamurai.Domain;
 
@@ -19,7 +21,7 @@ namespace EFSamurai.App
         {
             IList<Samurai> samuraiList = new List<Samurai>()
             {
-                new Samurai() {Name = "Yukio"}, 
+                new Samurai() {Name = "Yukio"},
                 new Samurai() {Name = "Renzo"},
                 new Samurai() {Name = "Morio"},
             };
@@ -38,30 +40,31 @@ namespace EFSamurai.App
                     Name = "Battle 1",
                     Description = "Game of the Battle 1",
                     IsBrutal = true,
-                    StartDate = new DateTime(2020,08,01),
-                    EndDate = new DateTime(2020,08,02), 
+                    StartDate = new DateTime(2020, 08, 01),
+                    EndDate = new DateTime(2020, 08, 02),
                     BattleLog = new BattleLog()
                     {
                         Name = "BattleLog for Battle 1",
                         BattleEvents = new List<BattleEvent>()
-                        { new BattleEvent
+                        {
+                            new BattleEvent
                             {
-                        Summary = "Summary BattleEvent 1",
-                        Description= "Description BattleEvent 1",
-                        Order= 1
+                                Summary = "Summary BattleEvent 1",
+                                Description = "Description BattleEvent 1",
+                                Order = 1
                             },
-                        new BattleEvent
-                        {
-                            Summary = "Summary BattleEvent 1.2",
-                            Description = "Description BattleEvent 1.2",
-                            Order=2
-                        },
-                        new BattleEvent
-                        {
-                            Summary  ="Summary BattleEvent 1.3",
-                            Description = "Description BattleEvent 1.3",
-                            Order =3
-                        }
+                            new BattleEvent
+                            {
+                                Summary = "Summary BattleEvent 1.2",
+                                Description = "Description BattleEvent 1.2",
+                                Order = 2
+                            },
+                            new BattleEvent
+                            {
+                                Summary = "Summary BattleEvent 1.3",
+                                Description = "Description BattleEvent 1.3",
+                                Order = 3
+                            }
                         }
                     }
 
@@ -71,62 +74,64 @@ namespace EFSamurai.App
                     Name = "Battle 2",
                     Description = "Game of the Battle 2",
                     IsBrutal = false,
-                    StartDate = new DateTime(2020,08,02),
-                    EndDate = new DateTime(2020,08,03),
+                    StartDate = new DateTime(2020, 08, 02),
+                    EndDate = new DateTime(2020, 08, 03),
                     BattleLog = new BattleLog()
                     {
                         Name = "BattleLog for Battle 2",
                         BattleEvents = new List<BattleEvent>()
-                        { new BattleEvent
+                        {
+                            new BattleEvent
                             {
                                 Summary = "Summary BattleEvent 2",
-                                Description= "Description BattleEvent 2",
-                                Order= 1
+                                Description = "Description BattleEvent 2",
+                                Order = 1
                             },
                             new BattleEvent
                             {
                                 Summary = "Summary BattleEvent 2.2",
                                 Description = "Description BattleEvent 2.2",
-                                Order=2
+                                Order = 2
                             },
                             new BattleEvent
                             {
-                                Summary  ="Summary BattleEvent 2.3",
+                                Summary = "Summary BattleEvent 2.3",
                                 Description = "Description BattleEvent 2.3",
-                                Order =3
+                                Order = 3
                             }
                         }
 
                     }
-                    },
+                },
                 new Battle()
                 {
                     Name = "Battle 3",
                     Description = "Game of the Battle 3",
                     IsBrutal = true,
-                    StartDate = new DateTime(2020,08,03),
-                    EndDate = new DateTime(2020,08,04),
+                    StartDate = new DateTime(2020, 08, 03),
+                    EndDate = new DateTime(2020, 08, 04),
                     BattleLog = new BattleLog()
                     {
                         Name = "BattleLog for Battle 3",
                         BattleEvents = new List<BattleEvent>()
-                        { new BattleEvent
+                        {
+                            new BattleEvent
                             {
                                 Summary = "Summary BattleEvent 3",
-                                Description= "Description BattleEvent 3",
-                                Order= 1
+                                Description = "Description BattleEvent 3",
+                                Order = 1
                             },
                             new BattleEvent
                             {
                                 Summary = "Summary BattleEvent 3.2",
                                 Description = "Description BattleEvent 3.2",
-                                Order=2
+                                Order = 2
                             },
                             new BattleEvent
                             {
-                                Summary  ="Summary BattleEvent 3.3",
+                                Summary = "Summary BattleEvent 3.3",
                                 Description = "Description BattleEvent 3.3",
-                                Order =3
+                                Order = 3
                             }
                         }
                     }
@@ -148,61 +153,103 @@ namespace EFSamurai.App
                 HairStyle = HairStyle.Chonmage,
 
                 Quotes = new List<Quote>()
-                {new Quote {Text = "Samurai Gopitha Quote", QuoteStyle = QuoteStyle.Lame},
-                new Quote {Text= "Samurai Gopitha Quote 2", QuoteStyle= QuoteStyle.Awesome}},
+                {
+                    new Quote {Text = "Samurai Gopitha Quote", QuoteStyle = QuoteStyle.Lame},
+                    new Quote {Text = "Samurai Gopitha Quote 2", QuoteStyle = QuoteStyle.Awesome}
+                },
 
-                SecretIdentity = new SecretIdentity() { RealName = "GS" },
+                SecretIdentity = new SecretIdentity() {RealName = "GS"},
 
                 SamuraiBattles = new List<SamuraiBattle>()
-                    { new SamuraiBattle {Battle = new Battle() {Name = "Battle 4",
-                        Description = "Game of the Battle 4",
-                        IsBrutal = true,
-                        StartDate = new DateTime(2020,08,05),
-                        EndDate = new DateTime(2020,08,06),
-                        BattleLog = new BattleLog()
-                        {Name = "BattleLog for battle 4",
-                            BattleEvents = new List<BattleEvent>()
-                            { new BattleEvent
+                {
+                    new SamuraiBattle
+                    {
+                        Battle = new Battle()
+                        {
+                            Name = "Battle 4",
+                            Description = "Game of the Battle 4",
+                            IsBrutal = true,
+                            StartDate = new DateTime(2020, 08, 05),
+                            EndDate = new DateTime(2020, 08, 06),
+                            BattleLog = new BattleLog()
+                            {
+                                Name = "BattleLog for battle 4",
+                                BattleEvents = new List<BattleEvent>()
                                 {
-                                    Summary = "Summary BattleEvent 4",
-                                    Description = "Description BattleEvent 4",
-                                    Order = 1
-                                },
-                                new BattleEvent
-                                {
-                                    Summary = "Summary BattleEvent 4.2",
-                                    Description = "Description BattleEvent 4.2",
-                                    Order = 2
+                                    new BattleEvent
+                                    {
+                                        Summary = "Summary BattleEvent 4",
+                                        Description = "Description BattleEvent 4",
+                                        Order = 1
+                                    },
+                                    new BattleEvent
+                                    {
+                                        Summary = "Summary BattleEvent 4.2",
+                                        Description = "Description BattleEvent 4.2",
+                                        Order = 2
+                                    }
                                 }
                             }
                         }
                     }
-                        }
-                    }
+                }
             };
-            
+
             using var context = new SamuraiContext();
             context.Samurais.Add(samuraiGopitha);
             context.SaveChanges();
 
         }
 
-        public static void ClearDatabase(){
-            using var context = new SamuraiContext();
-            context.Samurais.RemoveRange();
-            context.SaveChanges();
-
-            // Need to remove more tables? 
-        }
-
-
-
-        static void Main(string[] args) 
+        public static void ClearDatabase()
         {
-        //{Console.WriteLine("Hello World!");
+            using (var context = new SamuraiContext())
+            {
+                context.RemoveRange(context.Samurais);
+                context.RemoveRange(context.Battles);
+                context.SaveChanges();
+            }
         }
+
+
+        public static void ListAllSamuraiNames()
+        {
+            using (var context = new SamuraiContext())
+            {
+                var samurais = from s in context.Samurais
+                    orderby s.Name
+                    select s.Name;
+                foreach (var samurai in samurais)
+                {
+                    Console.WriteLine(samurai);
+                }
+
+            }
+        }
+
+
+
+
+
     }
+
+
+    static void Main(string[] args)
+
+    {
+
+
+    // AddSomeSamurais();
+    // AddSomeBattles();
+    // AddOneSamuraiWithRelatedData();
+    // ClearDatabase();
+    }
+
+
+
+
+
+
+
+
 }
-
-    
-
