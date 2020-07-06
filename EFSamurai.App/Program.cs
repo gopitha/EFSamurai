@@ -144,7 +144,7 @@ namespace EFSamurai.App
             var samuraiGopitha = new Samurai { Name = "Gopitha",
                 Quote = QuoteStyle.Awesome,
                 HairStyle =  HairStyle.Chonmage  ,
-                SecretIdentity = {Id = 1, RealName = "GS" }
+                SecretIdentity = new SecretIdentity() { RealName = "GS" }
 
             };
             using var context = new SamuraiContext();
@@ -152,6 +152,15 @@ namespace EFSamurai.App
             context.SaveChanges();
 
         }
+
+        public static void ClearDatabase()
+        { 
+
+
+
+        }
+
+
 
         static void Main(string[] args) 
         {
