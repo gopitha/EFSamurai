@@ -19,16 +19,25 @@ namespace EFSamurai.App
 
         public static void AddSomeSamurais()
         {
-            IList<Samurai> newSamuraiList = new List<Samurai>()
+            IList<Samurai> SamuraiList = new List<Samurai>()
             {
                 new Samurai() {Name = "Yukio"}, 
                 new Samurai() {Name = "Renzo"},
                 new Samurai() {Name = "Morio"},
             };
 
+            using (var context = new SamuraiContext())
+            {
+                context.Samurais.AddRange(new List<Samurai>());
+                context.SaveChanges();
+            }
+
         }
 
-        static void Main(string[] args) {
+
+
+        static void Main(string[] args) 
+        {
         //{Console.WriteLine("Hello World!");
         }
     }
