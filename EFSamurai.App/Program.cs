@@ -19,17 +19,20 @@ namespace EFSamurai.App
 
         public static void AddSomeSamurais()
         {
-            IList<Samurai> newSamurai = new List<Samurai>() {
-                
-                new Samurai() {Name = "Yukio"};
-                new Samurai() {Name = "Renzo"};
-                new Samurai() {Name = "Morio"};
-        };
+            IList<Samurai> newSamuraiList = new List<Samurai>()
+            {
+                new Samurai() {Name = "Yukio"}, 
+                new Samurai() {Name = "Renzo"},
+                new Samurai() {Name = "Morio"},
+            };
 
         }
 
-      //  static void Main(string[] args)
-        //{Console.WriteLine("Hello World!");}
+        static void Main(string[] args) {
+        //{Console.WriteLine("Hello World!");
+        }
     }
+}
 
+    
 

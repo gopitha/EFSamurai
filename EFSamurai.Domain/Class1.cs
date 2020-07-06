@@ -19,7 +19,7 @@ namespace EFSamurai.Domain
 
     public class Quote
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Text { get; set; }
 
         public QuoteStyle ? QuoteStyle   {get; set;}
@@ -29,16 +29,16 @@ namespace EFSamurai.Domain
 
     public class SecretIdentity
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string RealName { get; set; }
-        public int? SamuraiId { get; set; }
+        public int SamuraiId { get; set; }
 
         public Samurai Samurai { get; set; }
     }
 
     public class Battle
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public bool IsBrutal { get; set; }
@@ -52,18 +52,18 @@ namespace EFSamurai.Domain
 
     public class SamuraiBattle
     {
-        public int? SamuraiId { get; set; }
+        public int SamuraiId { get; set; }
         public Samurai Samurai { get; set; }
-        public int? BattleId { get; set; }
+        public int BattleId { get; set; }
         public Battle Battle { get; set; }
     }
 
     public class BattleLog
     {
-        public int? Id { get; set;}
+        public int Id { get; set;}
         public string Name { get; set; }
 
-        public int? BattleId { get; set;}
+        public int BattleId { get; set;}
         public Battle Battle { get; set; }
 
         public ICollection<BattleEvent> BattleEvents { get; set; }
@@ -76,7 +76,7 @@ namespace EFSamurai.Domain
         public string Summary { get; set; }
         public string Description { get; set; }
 
-        public int? BattleLogId { get; set; }
+        public int BattleLogId { get; set; }
         public BattleLog BattleLog { get; set; }
     }
 }
