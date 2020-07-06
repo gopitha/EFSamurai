@@ -141,23 +141,58 @@ namespace EFSamurai.App
 
         public static void AddOneSamuraiWithRelatedData()
         {
-            var samuraiGopitha = new Samurai { Name = "Gopitha",
-                Quote = QuoteStyle.Awesome,
-                HairStyle =  HairStyle.Chonmage  ,
-                SecretIdentity = new SecretIdentity() { RealName = "GS" }
+            var samuraiGopitha = new Samurai
+            {
+                Name = "Gopitha",
 
+                HairStyle = HairStyle.Chonmage,
+
+                Quotes = new List<Quote>()
+                {new Quote {Text = "Samurai Gopitha Quote", QuoteStyle = QuoteStyle.Lame},
+                new Quote {Text= "Samurai Gopitha Quote 2", QuoteStyle= QuoteStyle.Awesome}},
+
+                SecretIdentity = new SecretIdentity() { RealName = "GS" },
+
+                SamuraiBattles = new List<SamuraiBattle>()
+                    { new SamuraiBattle {Battle = new Battle() {Name = "Battle 4",
+                        Description = "Game of the Battle 4",
+                        IsBrutal = true,
+                        StartDate = new DateTime(2020,08,05),
+                        EndDate = new DateTime(2020,08,06),
+                        BattleLog = new BattleLog()
+                        {Name = "BattleLog for battle 4",
+                            BattleEvents = new List<BattleEvent>()
+                            { new BattleEvent
+                                {
+                                    Summary = "Summary BattleEvent 4",
+                                    Description = "Description BattleEvent 4",
+                                    Order = 1
+                                },
+                                new BattleEvent
+                                {
+                                    Summary = "Summary BattleEvent 4.2",
+                                    Description = "Description BattleEvent 4.2",
+                                    Order = 2
+                                }
+                            }
+                        }
+                    }
+                        }
+                    }
             };
+            
             using var context = new SamuraiContext();
             context.Samurais.Add(samuraiGopitha);
             context.SaveChanges();
 
         }
 
-        public static void ClearDatabase()
-        { 
+        public static void ClearDatabase(){
+            using var context = new SamuraiContext();
+            context.Samurais.RemoveRange();
+            context.SaveChanges();
 
-
-
+            // Need to remove more tables? 
         }
 
 
