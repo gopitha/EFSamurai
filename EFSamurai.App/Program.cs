@@ -281,6 +281,20 @@ namespace EFSamurai.App
             }
         }
 
+        public static void ListAllQuotesOfType(QuoteStyle quoteStyle)
+        {
+            using (var context = new SamuraiContext())
+            {
+                var quotes = from s in context.Quotes
+                    where s.QuoteStyle == quoteStyle
+                    select s;
+                foreach (var quote in quotes)
+                {
+                    Console.WriteLine(quote.Text);
+                }
+            }
+
+        }
 
 
 
@@ -293,19 +307,20 @@ namespace EFSamurai.App
             // ListAllSamuraiNames_OrderByDecending();
             //  ListAllSamuraiNames_OrderByIdDescending();
             //FindSamuraiWithRealName("Gopitha");
+            ListAllQuotesOfType(QuoteStyle.Awesome);
 
 
 
 
-            // Metoder til del 1 av Oppgaven:
+                // Metoder til del 1 av Oppgaven:
 
-            // AddSomeSamurais();
-            // AddSomeBattles();
-            // AddOneSamuraiWithRelatedData();
-            // ClearDatabase();
+                // AddSomeSamurais();
+                // AddSomeBattles();
+                // AddOneSamuraiWithRelatedData();
+                // ClearDatabase();
 
 
-        }
+            }
 
         }
 
