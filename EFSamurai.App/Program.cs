@@ -218,7 +218,7 @@ namespace EFSamurai.App
             using (var context = new SamuraiContext())
             {
                 var samurais = from s in context.Samurais
-                    orderby s.Name
+                   // orderby s.Name
                     select s.Name;
                 foreach (var samurai in samurais)
                 {
@@ -228,12 +228,12 @@ namespace EFSamurai.App
             }
         }
 
-        public static void ListAllSamuraiNames_OrderByDecending()
+        public static void ListAllSamuraiNames_OrderByName()
         {
             using (var context = new SamuraiContext())
             {
                 var samuraiNameDec = from s in context.Samurais
-                    orderby s.Id descending
+                    orderby s.Name ascending 
                     select s;
 
                 foreach (var samurai in samuraiNameDec)
@@ -299,6 +299,9 @@ namespace EFSamurai.App
         public static void ListAllQuotesOfType_WithSamurai(QuoteStyle quoteStyle)
         {
 
+
+
+
         }
 
         public static void ListAllBattles(DateTime from, DateTime to, bool? isBrutal)
@@ -308,13 +311,12 @@ namespace EFSamurai.App
         }
 
 
-
     static void Main(string[] args){
         
         {   // Metoder til del 2 av oppgaven:
-            // ListAllSamuraiNames();
-            // ListAllSamuraiNames_OrderByDecending();
-            //  ListAllSamuraiNames_OrderByIdDescending();
+            //ListAllSamuraiNames();
+            //ListAllSamuraiNames_OrderByName();
+           //ListAllSamuraiNames_OrderByIdDescending();
             //FindSamuraiWithRealName("Gopitha");
             //ListAllQuotesOfType(QuoteStyle.Awesome);
 
